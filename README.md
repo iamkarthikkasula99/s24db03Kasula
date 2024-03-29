@@ -1,6 +1,6 @@
 # s24wb03Kasula
 im funny
-render link: https://s24wb03kasula.onrender.com/
+render link: https://s24db03kasula.onrender.com/
 # Class: Cap
 **Class Name:**Cap
 
