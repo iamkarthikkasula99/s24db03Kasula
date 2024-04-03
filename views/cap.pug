@@ -1,24 +1,24 @@
 extends layout
-
+ 
 block content
   h1= title
  
   div.container-fluid
     div.row
-      - let cap = results
-      each cap, index in cap
-        .col-sm-2(onclick=`buy(${index})`)
-        
-          p Cap Type: #{cap.cap_type}
-          p Size: #{cap.cap_size}
-          p Price: $#{cap.cap_price.toFixed(2)}
-
+      -
+        let cap=results
+       
+      each cap,index in results
+        .col-sm-2
+        div.col-sm-2(onclick=`buy(${index})`)
+       
+          p Type: #{cap.cap_type}
+          p Size : #{cap.cap_size}
+          p Cost: $#{cap.cap_cost.toFixed(2)}
+ 
   a(href="/") Back to index
-
-  script.
-    function buy(index) {
-        alert(`You purchased item ${index}`);
-    }
-
-
-
+ 
+    script.
+        function buy(index) {
+            alert(`You purchased item ${index}`);
+        }
