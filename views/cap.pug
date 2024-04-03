@@ -2,27 +2,23 @@ extends layout
 
 block content
   h1= title
-  
+ 
   div.container-fluid
     div.row
-      -
-        let results = [
-          { cap_type: 'basketball cap', cap_size: 'Medium', cap_price: 20 },
-          { cap_type: 'flat cap', cap_size: 'Large', cap_price: 30 },
-          { cap_type: 'cricket cap', cap_size: 'Small', cap_price: 60 }
-        ]
+      - let cap = results
+      each cap, index in cap
+        .col-sm-2(onclick=`buy(${index})`)
         
-      each cap,index in results
-        .col-sm-2 
-        div.col-sm-2(onclick=`buy(${index})`)
-        
-          p cap Type: #{cap.cap_type}
+          p Cap Type: #{cap.cap_type}
           p Size: #{cap.cap_size}
           p Price: $#{cap.cap_price.toFixed(2)}
 
   a(href="/") Back to index
 
-    script. 
-        function buy(index) {
-            alert(`You purchased item ${index}`);
-        }
+  script.
+    function buy(index) {
+        alert(`You purchased item ${index}`);
+    }
+
+
+
