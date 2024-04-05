@@ -25,8 +25,8 @@ ${JSON.stringify(req.body)}`)
  // Do updates of properties
  if(req.body.cap_type)
  toUpdate.cap_type = req.body.cap_type;
- if(req.body.size) toUpdate.size = req.body.size;
- if(req.body.cost) toUpdate.cost = req.body.cost;
+ if(req.body.cap_size) toUpdate.cap_size = req.body.cap_size;
+ if(req.body.cap_cost) toUpdate.cap_cost = req.body.cap_cost;
  let result = await toUpdate.save();
  console.log("Sucess " + result)
  res.send(result)
