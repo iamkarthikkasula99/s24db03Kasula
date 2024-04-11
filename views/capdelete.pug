@@ -2,6 +2,9 @@ extends layout
  
 block content
   h1= title
+  if (toShow == null)
+    h2 No instance to delete
+  else
     - let capid = toShow._id
     - let cap_type = toShow.cap_type
     - let cap_size = toShow.cap_size
