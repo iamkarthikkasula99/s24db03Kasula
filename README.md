@@ -8,5 +8,5 @@ render link: https://s24db03kasula.onrender.com/
 
 - `Cap_type` (string) 
 - `Cap_size`(string) 
-- `Cap_price`(number) 
+- `Cap_cost`(number) 
 

@@ -1,0 +1,39 @@
+extends layout
+block content
+  h1= title
+    - let capid = toShow._id
+    - let cap_type = toShow.cap_type
+    - let cap_size = toShow.cap_size
+    - let cap_cost = toShow.cap_cost
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{capid}
+    - let actionid = "/resource/cap/" + capid
+    form(id='capForm', action= actionid, method="PUT")
+      div.form-group
+        label.capAttr(for='cap_type') cap name
+        input#cap_type(type='text', name='cap_type', )
+      div.form-group
+        label.capAttr(for='cap_size') cap cap_size
+        input#cap_size(type='text', name='cap_size',)
+      div.form-group
+        label.capAttr(for='cap_cost') cap_cost
+        input#cap_cost(type='number', name='cap_cost', )
+      input(type="submit")
+    script.
+      document.forms['capForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+          method: 'PUT',
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+          return resp.text(); //resp.json();or whatever the server sends
+        }).then((body) => {
+          alert("Update succeeded");
+          // TODO handle body
+        }).catch((error) => {
+          // TODO handle error
+          alert("Update failed: " + error);
+        });
+      });
