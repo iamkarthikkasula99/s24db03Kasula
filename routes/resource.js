@@ -10,7 +10,7 @@ router.get('/', api_controllers.api);
 // POST request for creating a cap.
 router.post('/cap', cap_controllers.cap_create_post);
 // DELETE request to delete cap.
-//router.delete('/cap/:id', cap_controllers.cap_delete);
+router.delete('/cap/:id', cap_controllers.cap_delete);
 // PUT request to update cap.
 router.put('/cap/:id', cap_controllers.cap_update_put);
 // GET request for one cap.

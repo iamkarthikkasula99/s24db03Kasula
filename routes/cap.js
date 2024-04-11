@@ -11,7 +11,7 @@ router.get('/detail', cap_controllers.cap_view_one_Page);
 router.get('/create', cap_controllers.cap_create_Page);
 /* GET create update page */
 router.get('/update', cap_controllers.cap_update_Page);
-
- 
+/* GET delete costume page */
+router.get('/delete', cap_controllers.cap_delete_Page);
  
 module.exports = router;

@@ -1,0 +1,52 @@
+extends layout
+ 
+block content
+  h1= title
+    - let capid = toShow._id
+    - let cap_type = toShow.cap_type
+    - let cap_size = toShow.cap_size
+    - let cap_cost = toShow.cap_cost
+    - let actionid = "/resource/cap/" + capid
+ 
+    script.
+      let actionid = "#{actionid}"
+   
+    div
+      div.row
+        div(class='capAttr mr-3') cap ID is:
+        div #{capid}
+      div.row
+        div(class='capAttr mr-3') cap_type is:
+        div #{cap_type}
+      div.row
+        div(class='capAttr mr-3') cap cap_size is:
+        div #{cap_size}
+      div.row
+        div(class='captAttr mr-3') cap_cost is:
+        div #{cap_cost}
+   
+    button(class="btn btn-danger m-2", onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2", onclick="cancel()") Cancel
+ 
+    script.
+      function cancel() {
+        
+        window.location.href='/cap'
+      }
+    script.
+      function deleteOnid() {
+        console.log("starting delete")
+        // delete first
+        fetch(actionid, {
+          method: 'DELETE' 
+        }).then((resp) => {
+          return resp.json(); 
+        }).then((body) => {
+          alert("Delete succeeded")
+          window.location.href='/cap'
+          // TODO handle body
+        }).catch((error) => {
+          // TODO handle error
+          alert("Delete failed " + error )
+        });
+      }
