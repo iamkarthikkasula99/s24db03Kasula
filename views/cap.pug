@@ -3,12 +3,17 @@ extends layout
 block content
   h1= title
   - let items = results
+  a.btn.btn-primary(href="/cap/create") Create Juice 
   div.container-fluid
     div(class="row m-1")
       each item in items
-          - let destination = `dispatch(\"/costumes/update?id=${item._id}\")`
+          - let destination = `dispatch(\"/cap/update?id=${item._id}\")`
+          - let detail = `dispatch(\"/cap/detail?id=${item._id}\")`
+          - let deletecap = `dispatch(\"/cap/delete?id=${item._id}\")`
           div.row-sm-2 Item #{item.cap_type}(#{item.cap_size}) is #{item.cap_cost}
-          button.btn.btn-primary.ml-1(onclick=`dispatch("/cap/update?id=${item._id}")`) Update
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
+          button.btn( class="btn-primary ml-1", onclick= detail) detail
+          button.btn( class="btn-primary ml-1", onclick= deletecap) delete
   script.
     function dispatch(path){
       window.location.href = path;

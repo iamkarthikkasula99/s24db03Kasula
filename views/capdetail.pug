@@ -1,7 +1,8 @@
 extends layout
+
 block content
-    h1= title
-    if (toShow == null)
+  h1= title
+  if toShow == null
     h2 No details found
   else
     - let cap_id = toShow._id
@@ -9,15 +10,15 @@ block content
     - let cap_size = toShow.cap_size
     - let cap_cost = toShow.cap_cost
     div
-        div.row
-            div(class='capAttr mr-3') cap ID is:
-            div #{cap_id}
-        div.row
-            div(class='capAttr mr-3') cap_type is:
-            div #{cap_type}
-        div.row
-            div(class='capAttr mr-3') cap_size is:
-            div #{cap_size}
-        div.row
-            div(class='capAttr mr-3') cap_cost is:
-            div #{cap_cost}
+      div.row
+        div.capAttr.mr-3 cap ID is:
+        div= cap_id
+      div.row
+        div.capAttr.mr-3 cap_type is:
+        div= cap_type
+      div.row
+        div.capAttr.mr-3 cap_size is:
+        div= cap_size
+      div.row
+        div.capAttr.mr-3 cap_cost is:
+        div= cap_cost
